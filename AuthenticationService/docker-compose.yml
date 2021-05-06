@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  database:
+    image: mysql:latest
+    volumes:
+        - dbdata:/var/lib/mysql
+    restart: always
+    environment:
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+        MYSQL_DATABASE: users_schema
+        MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+  authenticationservice:
+    depends_on:
+        - database
+    image: ${DOCKER_REGISTRY-}authenticationservice
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+volumes:
+  dbdata:
