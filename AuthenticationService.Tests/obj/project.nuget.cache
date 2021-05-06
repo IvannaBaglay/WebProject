@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9+Z15KX1OQWDs/+8qpxTbpCE2DSQ/klMhSsJcqxDBz8ktVE6syc/NdLPrtMsSmkWbSzkd/IUti/q7k9SXkN07g==",
+  "dgSpecHash": "GruHNzCvgA914kPigVKJCH/iobG3lXxMkUBmRJ1kiZMiht0mw2Kl9Y3s7PT7HtLTt1Th8qqAr+sKuFCxFCxrcw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Пользователь\\Desktop\\лаб\\local-project-master\\Server\\AuthenticationService.Tests\\AuthenticationService.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Пользователь\\Desktop\\лаб\\Web\\AuthenticationService.Tests\\AuthenticationService.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Пользователь\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Пользователь\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",

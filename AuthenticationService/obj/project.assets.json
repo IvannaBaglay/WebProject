@@ -9054,11 +9054,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Пользователь\\Desktop\\лаб\\local-project-master\\Server\\AuthenticationService\\AuthenticationService.csproj",
+      "projectUniqueName": "C:\\Users\\Пользователь\\Desktop\\лаб\\Web\\AuthenticationService\\AuthenticationService.csproj",
       "projectName": "AuthenticationService",
-      "projectPath": "C:\\Users\\Пользователь\\Desktop\\лаб\\local-project-master\\Server\\AuthenticationService\\AuthenticationService.csproj",
+      "projectPath": "C:\\Users\\Пользователь\\Desktop\\лаб\\Web\\AuthenticationService\\AuthenticationService.csproj",
       "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Пользователь\\Desktop\\лаб\\local-project-master\\Server\\AuthenticationService\\obj\\",
+      "outputPath": "C:\\Users\\Пользователь\\Desktop\\лаб\\Web\\AuthenticationService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
