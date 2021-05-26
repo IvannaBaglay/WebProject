@@ -68,7 +68,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('tasks')
 
 
-    def form_invalid(self, form):
+    def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
 
