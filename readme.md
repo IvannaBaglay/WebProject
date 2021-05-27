@@ -1,3 +1,5 @@
+# Django
+
 ***Lab1***
 [link to docs](https://docs.google.com/document/d/1HTA9cuJOKuYPBeDFeno1vMBNiuWZEi8gm3qZyGKRWSw/edit?usp=sharing)
 
