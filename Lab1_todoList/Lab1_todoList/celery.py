@@ -1,10 +1,13 @@
 import os 
 from celery import Celery
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Lab1_todoList.settings.setting')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Lab1_todoList.settings')
 
 app = Celery('send_email')
-app.config_from_object('django.conf:settings', namespace='CELETY')
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks()
+
+# Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
 #celery beat task

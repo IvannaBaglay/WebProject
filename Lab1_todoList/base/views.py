@@ -14,6 +14,8 @@ from django.contrib.auth import login
 
 from .service import send
 
+from .tasks import send_spam_email
+
 from .models import Contact, Task
 
 # Create your views here.
@@ -94,8 +96,8 @@ class ContactView(CreateView):
     
     def form_valid(self, form):
         form.save()
-        send(form.instance.email)
-        # send_spam_email.delay(form.instance.email)
+        #send(form.instance.email)
+        send_spam_email.delay(form.instance.email)
         return super().form_valid(form)
 
 
