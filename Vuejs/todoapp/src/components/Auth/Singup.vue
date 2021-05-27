@@ -65,7 +65,8 @@
 
 <script>
 export default {
-  data: ()=> ({
+    name: "singup",
+    data: ()=> ({
       password: '',
       confirm_password: '',
       rules: {
