@@ -90,17 +90,7 @@ export default {
           email: this.email,
           password: this.password
         })
-        .then(({ status }) => {
-          this.$store.commit("SET_NOTIFICATION", {
-            display: true,
-            text: 'Your account has been successfully created! you can now login.',
-            alertClass: "danger"
-          });
           this.$router.push('/login')
-        })
-        .catch (error => {
-          this.userExists = true;
-        })
       }
     },
     valid() {

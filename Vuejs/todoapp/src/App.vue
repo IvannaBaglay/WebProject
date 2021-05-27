@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Todo/>
+    <router-view> </router-view>
   </v-app>
 </template>
 
@@ -8,13 +8,13 @@
 import Vuetify from 'vuetify'
 //import Login from "./components/Auth/Login"
 //import Singup from "./components/Auth/Singup"
-import Todo from "./components/Todo"
+//import Todo from "./components/Todo"
 
 export default {
   name: 'app',
   vuetify: new Vuetify(),
   components: {
-    Todo
+    
   }
 }
 </script>

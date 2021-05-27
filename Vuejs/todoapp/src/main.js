@@ -3,13 +3,17 @@ import "./plugins/vuetify.js"
 import VueRouter from 'vue-router'
 import App from "./App.vue"
 
+import Login from './components/Auth/Login'
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-
+    path: '/login',
+    component: Login,
+    name: 'login'
 
   }
 
