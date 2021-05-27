@@ -34,6 +34,7 @@
                 label="Password"
                 :rules="[rules.required]"
                 type="password"
+                v-model="password"
               ></v-text-field>
 
               <v-text-field
@@ -42,14 +43,16 @@
                 label="Confirm Password"
                 :rules="[rules.required]"
                 type="password"
+                :error="!valid()"
+                v-model="confirm_password"
               ></v-text-field>
             </v-form>
           </v-card-text>
           <v-divider light></v-divider>
           <v-card-actions>
-            <v-btn to="/login" round color="black" dark>Login</v-btn>
+            <v-btn to="/login" rounded color="black" dark>Login</v-btn>
             <v-spacer></v-spacer>
-            <v-btn round color="success" @click.prevent="register()">
+            <v-btn rounded color="success" @click.prevent="register()">
               Register
               <v-icon>keyboard_arrow_up</v-icon>
             </v-btn>
@@ -63,16 +66,20 @@
 <script>
 export default {
   data: ()=> ({
+      password: '',
+      confirm_password: '',
       rules: {
           required: value => !!value || "Required",
           email: value => {
               const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
               return pattern.test(value) || "Invalid e-mail.";
             }
-
       }
-
-
-  })
+  }),
+  methods:{
+      valid() {
+          return this.password === this.confirm_password;
+      }
+  }
 };
 </script>
