@@ -1,5 +1,6 @@
+from base.forms import ContactForm
 from django.urls import path
-from .views import CustomLoginView, TaskList, TaskDetail, TaskCreate, TaskUpdate, DeleteTask, RegisterPage
+from .views import ContactView, CustomLoginView, TaskList, TaskDetail, TaskCreate, TaskUpdate, DeleteTask, RegisterPage
 from django.contrib.auth.views import LogoutView
 from . import views
 
@@ -14,5 +15,7 @@ urlpatterns = [
     path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update'),
     path('task-delete/<int:pk>/', DeleteTask.as_view(), name='task-delete'),
     path('room/<str:room_name>/', views.room, name='room'),
+
+    path('contact/', ContactView.as_view(), name='contact')
 ]
 

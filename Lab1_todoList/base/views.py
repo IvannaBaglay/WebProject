@@ -1,3 +1,4 @@
+from base.forms import ContactForm
 from base.models import Task
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -11,7 +12,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
-from .models import Task
+from .service import send
+
+from .models import Contact, Task
 
 # Create your views here.
 
@@ -83,8 +86,19 @@ class DeleteTask(LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('tasks')
 
 
-
+class ContactView(CreateView):
+    model = Contact
+    form_class = ContactForm
+    success_url = '/'
+    template_name = 'base/contact.html'
     
+    def form_valid(self, form):
+        form.save()
+        send(form.instance.email)
+        # send_spam_email.delay(form.instance.email)
+        return super().form_valid(form)
+
+
 def index(request):
     return render(request, 'base/index.html', {})
 
