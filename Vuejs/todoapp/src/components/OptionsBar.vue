@@ -124,17 +124,8 @@ export default {
         .dispatch("DELETE_LIST", {
           listId: this.$route.params.id
         })
-        .then(response => {
-          this.$store.commit("SET_NOTIFICATION", {
-            display: true,
-            text: "List has been removed",
-            alertClass: "success"
-          });
           this.$router.push({ name: "todo" });
-        })
-        .catch(error => {
-          consoe.log(error);
-        });
+        
     }
   }
 };

@@ -95,12 +95,6 @@ export default {
         listId: this.$route.params.id,
         file: this.imageFile
       })
-      .then(response => {
-        this.loading = false;
-      })
-      .catch(error => {
-        this.loading = false;
-      }) 
     }
   }
 };

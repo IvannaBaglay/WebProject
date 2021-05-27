@@ -25,11 +25,6 @@ export default {
     snackbar: {
         get () {
             return this.$store.getters.NOTIFICATION.display;
-        },
-        set (value) {
-            this.$store.commit("SET_NOTIFICATION", {
-                display: false
-            })
         }
     }
   }
