@@ -7,7 +7,43 @@
             <v-toolbar-title>Signup form</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
-            
+            <v-form>
+              <v-alert
+                :value="true"
+                color="error"
+                icon="warning"
+              >This user already exists, try a different set of data.</v-alert>
+
+              <v-text-field
+                prepend-icon="person"
+                name="login"
+                label="Login"
+                :rules="[rules.required]"
+              ></v-text-field>
+
+              <v-text-field
+                prepend-icon="email"
+                name="email"
+                label="Email"
+                :rules="[rules.required, rules.email]"
+              ></v-text-field>
+
+              <v-text-field
+                prepend-icon="lock"
+                name="password"
+                label="Password"
+                :rules="[rules.required]"
+                type="password"
+              ></v-text-field>
+
+              <v-text-field
+                prepend-icon="lock"
+                name="password"
+                label="Confirm Password"
+                :rules="[rules.required]"
+                type="password"
+              ></v-text-field>
+            </v-form>
           </v-card-text>
           <v-divider light></v-divider>
           <v-card-actions>
@@ -26,5 +62,17 @@
 
 <script>
 export default {
+  data: ()=> ({
+      rules: {
+          required: value => !!value || "Required",
+          email: value => {
+              const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              return pattern.test(value) || "Invalid e-mail.";
+            }
+
+      }
+
+
+  })
 };
 </script>
