@@ -10,5 +10,8 @@
 
 [link to docs](https://docs.google.com/document/d/1dFmEVgYjjjQpX5D8jpAIOXyRfMklgX4yDceWQvRlQsw/edit?usp=sharing)
 
-_Student_: _Bahlai Ivanna_
+___
+
+_Student_: _Bahlai Ivanna kv-01mn_
+
 [Telegram](https://t.me/I_Purgatory_I)
