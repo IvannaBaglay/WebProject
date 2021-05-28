@@ -8,10 +8,12 @@ import store from "./stores/store";
 
 import App from "./App.vue";
 import Login from "./components/Auth/Login";
-import Signup from "./components/Auth/Signup";
+import Signup from "./components/Auth/Singup";
 import Todo from "./components/Todo";
 import Tasks from "./components/Tasks";
 import NotesModal from "./components/NotesModal";
+
+import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false;
 
@@ -124,5 +126,6 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
+  vuetify,
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app')

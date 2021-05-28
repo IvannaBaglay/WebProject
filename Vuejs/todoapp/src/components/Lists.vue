@@ -36,9 +36,9 @@
         <v-list-tile-content>
           <v-list-tile-title>{{ list.title }}</v-list-tile-title>
         </v-list-tile-content>
-        <v-list-tile-action>
+        <v-list-item-action>
           <v-list-tile-title>{{ TASKS_COUNT(list.id) }}</v-list-tile-title>
-        </v-list-tile-action>
+        </v-list-item-action>
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
