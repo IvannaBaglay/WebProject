@@ -45,6 +45,9 @@ export default {
           title: this.newTitle,
           listId: this.$route.params.id
         })
+        .then(response => {
+          this.editing = false;
+        })
         .catch(error => {
           console.log(error);
         });

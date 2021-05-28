@@ -75,6 +75,16 @@ export default {
           note: this.note,
           taskId: this.$route.params.taskId,
           listId: this.$route.params.id
+        })
+        .then(response => {
+          this.note = "";
+        })
+        .catch(error => {
+          this.$store.commit("SET_NOTIFICATION", {
+            dispay: true,
+            text: "Something went wrong",
+            alertClass: "error"
+          });
         });
     },
     deleteNote(noteId) {
@@ -83,6 +93,20 @@ export default {
           noteId,
           taskId: this.$route.params.taskId,
           listId: this.$route.params.id
+        })
+        .then(response => {
+          this.$store.commit("SET_NOTIFICATION", {
+            display: true,
+            text: "Note has been removed",
+            alertClass: "success"
+          });
+        })
+        .catch(error => {
+          this.$store.commit("SET_NOTIFICATION", {
+            display: true,
+            text: "Something bad happened",
+            alertClass: "error"
+          });
         });
     },
     deleteTask() {
@@ -100,6 +124,13 @@ export default {
             });
             this.open = false;
           }
+        })
+        .catch(error => {
+          this.$store.commit("SET_NOTIFICATION", {
+            display: true,
+            text: "Something bad happened",
+            alertClass: "error"
+          });
         });
     }
   },

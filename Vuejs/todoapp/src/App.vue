@@ -1,20 +1,17 @@
 <template>
   <v-app>
-    <router-view> </router-view>
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Vuetify from 'vuetify'
-//import Login from "./components/Auth/Login"
-//import Singup from "./components/Auth/Singup"
-//import Todo from "./components/Todo"
-
+// import Login from './components/Auth/Login'
+// import Signup from './components/Auth/Signup'
+import Todo from './components/Todo'
 export default {
   name: 'app',
-  vuetify: new Vuetify(),
   components: {
-    
+    Todo
   }
 }
 </script>

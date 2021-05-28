@@ -13,7 +13,7 @@
 
       <v-list two-line style="height: calc(100% - 128px); overflow-y: scroll">
         <template v-for="(task, key) in TASKS">
-          <Task v-bind:key="key" :task="task"/>
+          <Task v-bind:key="key" :task="task" :index="key"/>
         </template>
       </v-list>
       <v-divider></v-divider>
@@ -31,26 +31,26 @@
 
 
 <script>
-//import Task from "./Task";
+import Task from "./Task";
 import NewTask from "./NewTask";
+import NotesModal from "./NotesModal";
 import EditListTitle from './EditListTitle'
 export default {
   name: "tasks",
-  components: { NewTask, EditListTitle },
+  components: { Task, NewTask, NotesModal, EditListTitle },
   data: () => ({
-    tasks: [
-        {id: 1,
-        title: "task1",
-        },
-        {
-        id: 2,
-        title: "task2",
-        },
-        {
-        id: 3,
-        title: "task3",
-        },
-      ]
-  })
+    
+  }),
+  computed: {
+    listTitle () {
+      return this.$store.getters.LIST_TITLE(this.$route.params.id);
+    },
+    TASKS () {
+      return this.$store.getters.TASKS(this.$route.params.id);
+    }
+  },
+  async mounted () {
+    await this.$store.dispatch("GET_TASKS", this.$route.params.id);
+  }
 };
 </script>

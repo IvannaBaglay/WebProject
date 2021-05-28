@@ -84,12 +84,29 @@ export default {
   }),
   methods: {
     register() {
+      if (this.valid()) {
+        this.$store.dispatch('REGISTER', {
+          username: this.username,
+          email: this.email,
+          password: this.password
+        })
+        .then(({ status }) => {
+          this.$store.commit("SET_NOTIFICATION", {
+            display: true,
+            text: 'Your account has been successfully created! you can now login.',
+            alertClass: "danger"
+          });
+
           this.$router.push('/login')
-      },
+        })
+        .catch (error => {
+          this.userExists = true;
+        })
+      }
+    },
     valid() {
       return this.password === this.confirm_password;
-        }   
     }
-
+  }
 };
 </script>
