@@ -45,10 +45,7 @@ export default {
   }),
   methods: {
     login() {
-      this.$store.dispatch("LOGIN", {
-        username: this.username,
-        password: this.password
-      })
+      this.$router.push('/')
     }
   }
 };
