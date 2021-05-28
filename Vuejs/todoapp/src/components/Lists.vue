@@ -22,9 +22,6 @@
         </v-list-tile-action>
       </v-list-tile>
 
-      <v-list-tile v-if="openNewListFormValue">
-          <NewList/>
-      </v-list-tile>
     </v-list>
     <v-divider></v-divider>
     <v-list style="height: calc(100% - 128px); overflow-y: scroll">
@@ -46,25 +43,27 @@
 
 <script>
 import SearchBar from "./SearchBar";
-import NewList from './NewList';
 
 export default {
   name: "lists",
-  components: { SearchBar, NewList },
+  components: { SearchBar},
   data: () => ({
       lists: [
         {id: 1,
         title: "List1",
+        sub_title: "Tested description",
         tasks: 1
         },
         {
         id: 2,
         title: "List2",
+        sub_title: "Tested description",
         tasks: 1
         },
         {
         id: 3,
         title: "List3",
+        sub_title: "Tested description",
         tasks: 10
         },
       ]
