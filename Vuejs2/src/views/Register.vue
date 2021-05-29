@@ -3,9 +3,9 @@
     <div class="error" v-if="error">{{error.message}}</div>
     <form @submit.prevent="pressed">
       Register
-      <div class="email">
-        <label for="email">Name:</label>
-        <input type="email" v-model="email" placeholder="email" />
+      <div class="login">
+        <label for="login">Name:</label>
+        <input type="login" v-model="login" placeholder="login" />
       </div>
       <div class="password">
         <label for="password">Name:</label>
