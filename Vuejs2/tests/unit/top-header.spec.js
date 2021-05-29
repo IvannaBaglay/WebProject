@@ -1,5 +1,7 @@
 import TopHeader from '@/components/Top-Header.vue'
-import {shallowMount} from '@vue/test-utils'
+import Secret from "@/views/Secret.vue";
+
+import {shallowMount, mount} from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 
 
@@ -9,13 +11,22 @@ const $router = {
 
 }
 
+const $axios = {
+    get: () => {
+      return Promise.resolve({ data: [{ char_id: 1, name: "123" }] });
+    }
+  };
+
 jest.mock("firebase/app", ()=> ({
     auth(){
         return {
             onAuthStateChanged(fnc){
                 return fnc(true);
             },
-            signOut: ()=> Promise.resolve()
+            signOut: ()=> Promise.resolve(),
+            currentUser: {
+                getIdToken: () => "blah"
+              }
         }
     }
 }))
@@ -48,5 +59,27 @@ describe ("topHeader.vue", ()=> {
         await flushPromises();
         expect($router.replace).lastCalledWith ({name: "login"})
     })
+
+    it("sets the correct user to logged in", async () => {
+        await wrapper.vm.$nextTick();
+    
+        expect(wrapper.vm.$data.loggedIn).toBe(true);
+      });
+
+
+describe("secret vue", () => {
+  let wrapper;
+  it("renders", () => {
+    wrapper = mount(Secret, { mocks: { $axios } });
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  it("shows correct name", async () => {
+    wrapper = mount(Secret, { mocks: { $axios } });
+    await flushPromises();
+    const l = wrapper.find("h5");
+    expect(l.text()).toBe("123");
+  });
+});
 
 })
