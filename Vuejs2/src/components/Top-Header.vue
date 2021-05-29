@@ -1,6 +1,6 @@
 <template>
   <div>
-    Logged in
+    <h1>Logged in</h1>
     <div v-if="loggedIn">Yes</div>
     <div v-else>No</div>
     <button class="but" @click="signOut">Sign out</button>
