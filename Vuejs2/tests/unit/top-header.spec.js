@@ -1,5 +1,6 @@
 import TopHeader from '@/components/Top-Header.vue'
 import Secret from "@/views/Secret.vue";
+import Register from "@/views/Register.vue";
 
 import {shallowMount, mount} from '@vue/test-utils'
 import flushPromises from 'flush-promises'
@@ -22,6 +23,9 @@ jest.mock("firebase/app", ()=> ({
         return {
             onAuthStateChanged(fnc){
                 return fnc(true);
+            },
+            createUserWithEmailAndPassword: () => {
+              return Promise.resolve();
             },
             signOut: ()=> Promise.resolve(),
             currentUser: {
@@ -81,5 +85,33 @@ describe("secret vue", () => {
     expect(l.text()).toBe("123");
   });
 });
+
+describe("Register.vue", () => {
+    let wrapper;
+    beforeEach(() => {
+      wrapper = shallowMount(Register, {
+        mocks: {
+          $router
+        },
+        data() {
+          return {
+            email: "test@test.com",
+            password: "123",
+            error: false
+          };
+        }
+      });
+    });
+    it("renders", () => {
+      expect(wrapper.exists()).toBe(true);
+    });
+  
+    it("sends to secret route if promise resolves", async () => {
+      wrapper.find("form").trigger("submit");
+      wrapper.vm.pressed();
+      await flushPromises();
+      expect($router.replace).lastCalledWith({ name: "secret" });
+    });
+  });
 
 })
