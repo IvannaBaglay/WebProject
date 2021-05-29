@@ -29,13 +29,22 @@ export default {
         }
       });
     },
-    signOut() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.replace({ name: "login" });
-        });
+    async signOut() {
+      try {
+
+        const data = await firebase.auth().signOut();
+        console.log('test', data);
+        this.$router.replace({name: "login"})
+      }catch(err)
+      {
+        console.log(err)
+      }
+      // firebase
+      //   .auth()
+      //   .signOut()
+      //   .then(() => {
+      //     this.$router.replace({ name: "login" });
+      //   });
     }
   },
   data() {
