@@ -4,9 +4,11 @@
     <form @submit.prevent="pressed">
       Register
       <div class="email">
+        <label for="email">Name:</label>
         <input type="email" v-model="email" placeholder="email" />
       </div>
       <div class="password">
+        <label for="password">Name:</label>
         <input type="password" v-model="password" placeholder="password" />
       </div>
       <button type="submit">Register</button>

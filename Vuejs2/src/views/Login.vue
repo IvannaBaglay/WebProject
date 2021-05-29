@@ -3,9 +3,11 @@
     <h3>Login</h3>
     <form @submit.prevent="pressed">
       <div class="login">
-        <input type="text" placeholder="login" v-model="email" />
+        <label for="login">Name:</label>
+        <input type="login" placeholder="login" v-model="email" />
       </div>
       <div class="password">
+        <label for="password">Name:</label>
         <input type="password" placeholder="password" v-model="password" />
       </div>
       <button>Login</button>
