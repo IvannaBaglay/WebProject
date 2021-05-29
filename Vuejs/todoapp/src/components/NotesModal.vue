@@ -49,7 +49,7 @@
 
 <script>
 export default {
-  name: "notesModal",
+  name: "notes",
   data: () => ({
     note: "",
     open: true
